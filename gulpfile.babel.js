@@ -68,13 +68,8 @@ gulp.task('clean', cb => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 // Build production files, the default task
 gulp.task('default', ['clean'], cb =>
   runSequence(
-    ['cleanCache'],
-    // 'webp',
+    ['cleanCache', 'images'],
+    'webp',
     cb
   )
 );
-
-
-// Load custom tasks from the `tasks` directory
-// Run: `npm install --save-dev require-dir` from the command-line
-// try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
